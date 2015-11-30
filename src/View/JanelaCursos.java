@@ -10,6 +10,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -37,7 +38,7 @@ public class JanelaCursos implements ListSelectionListener, ActionListener{
 	private JTextField id;
 	private JTextField nome;
 	private JTextField descricao;
-	private JTextField ativo;
+	private JCheckBox ativo;
 	private JTextField inicio;
 	private JTextField termino;
 	
@@ -63,7 +64,7 @@ public class JanelaCursos implements ListSelectionListener, ActionListener{
 		id = new JTextField();
 		nome = new JTextField();
 		descricao = new JTextField();
-		ativo = new JTextField();
+		ativo = new JCheckBox();
 		inicio = new JTextField();
 		termino = new JTextField();
 		
@@ -167,7 +168,7 @@ public class JanelaCursos implements ListSelectionListener, ActionListener{
 		id.setText(String.valueOf(c.getId()));
 		nome.setText(c.getNome());
 		descricao.setText(c.getDescricao());
-		ativo.setText(String.valueOf(c.isAtivo()));
+		ativo.setSelected(c.isAtivo());
 		inicio.setText(sdf.format(c.getHorarioInicio()));
 		termino.setText(sdf.format(c.getHorarioTermino()));
 	}
@@ -180,7 +181,7 @@ public class JanelaCursos implements ListSelectionListener, ActionListener{
 		catch(NumberFormatException e ){}
 		c.setNome(nome.getText());
 		c.setDescricao(descricao.getText());
-		c.setAtivo(Boolean.parseBoolean(ativo.getText()));
+		c.setAtivo(ativo.isSelected());
 		try{
 			c.setHorarioInicio(sdf.parse(inicio.getText()));
 			c.setHorarioTermino(sdf.parse(termino.getText()));
