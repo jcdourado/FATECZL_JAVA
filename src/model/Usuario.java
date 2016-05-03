@@ -5,7 +5,7 @@ import java.util.List;
 public class Usuario {
 	private int id;
 	private String nome;
-	private int userId;
+	private String userId;
 	private String password;
 	private String email;
 	private List<Endereco> enderecos;
@@ -23,10 +23,10 @@ public class Usuario {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 	public String getPassword() {
